@@ -1,7 +1,11 @@
-- [x] Update hotspot-blocker/data/blocklist.json to include "codinggita.com"
-- [x] Modify hotspot-blocker/src/dns-server.js to set hotspot adapter DNS to 192.168.137.1 on start
-- [x] Modify hotspot-blocker/src/dns-server.js to return A record with 192.168.137.1 for blocked domains instead of NXDOMAIN
-- [x] Add HTTP server in hotspot-blocker/src/dns-server.js on port 80 serving block page HTML
-- [x] Test the system by running DNS server and accessing blocked sites on mobile
-- [x] Fix DNS blocking for IPv6 and HTTPS by returning NXDOMAIN for all blocked queries
-- [x] Add IPv6 DNS server support and set IPv6 DNS for hotspot
+# TODO: Fix Unblock Button Issue
+
+## Steps to Complete
+- [x] Create dynamic API route for /api/blocklist/[domain] with DELETE handler
+- [x] Remove DELETE handler from base /api/blocklist/route.js
+- [x] Test unblock functionality and DNS reload
+- [x] Verify mobile cache handling (note: may require manual DNS flush on mobile)
+
+## Notes
+- DNS server watches blocklist.json and reloads automatically on change
+- Mobile DNS cache may persist NXDOMAIN until expiration; users may need to flush DNS or wait
